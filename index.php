@@ -38,15 +38,26 @@
             <option>10</option>
         </select>
         <br />
+        <br />
+        <input type="text" value="Please enter a team name." name="username"/>
+        <br />
+        Select a team icon.<br />
+        <input type="radio" name="icon" value="valor" /><img src="valor.jpg" /><br />
+        <input type="radio" name="icon" value="mystic" /><img src="mystic.png" /><br />
+        <input type="radio" name="icon" value="valor" /><img src="instinct.png" /><br />
+
+        <br />
         <input type="submit" value="Play" onclick="window.location.href='index.php'" />
     </form>
 
      <?php
      $numPlayers = 2;
      $numDice = 3;
+     $username=$_POST['username'];
      if(isset($_POST['submit'])){
          $numPlayers = $_POST["numPlayers"];
          $numDice = $_POST["numDice"];
+         print ($username);
      }
      
      ?>
