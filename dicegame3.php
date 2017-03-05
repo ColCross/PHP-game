@@ -95,11 +95,12 @@
 ?>
 
 <form action="dicegame4.php" method="post">
-	<input type="hidden" name="currP" value=<?php echo '"'.$currP.'">'; ?>
 	
-	<h1>Current player <?php echo $currP ?></h1>
+	
+	<h1>Current player <?php echo $currP; ?>	</h1>
 	<h2>Make a bet</h2>
 	<h3>Number of Dice</h2>
+	<input type="hidden" name="currP" value=<?php echo '"'.$currP.'">'; ?>
 	<select name="currBetNum">
 		<option value="1">1</option>
 		<option value="2">2</option>

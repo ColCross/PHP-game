@@ -9,6 +9,17 @@
 <body>
 	<?php
 	
+		function callWinner($array){
+			$size = count($array);
+			
+			for($i = 0; $i<$size; $i++){
+				if($array[$i] == 1){
+					$i++;
+					echo "<h1> Congrats, player $i is the winner!!!</h1>";
+					
+				}
+			}
+		}
 	
 		function countarray($array, $target){
 			$total = 0;
@@ -98,7 +109,7 @@
 		
 		
 		
-		
+		//count number of selected die.
 		$x = 0;
 		for($i=0; $i<$players; $i++){
 			if($player[$i] == 1){
@@ -111,11 +122,14 @@
 		echo "Total matches of all active players $x";
 		echo "<br><br>";
 		
+		//if selected die is correct, the player wasn't bluffing, thus the current player loses a die. lower total die by 1.
 		if($x == $currBetNum){
 			echo "Player $prevP wasn't bluffing. Player $currP loses a dice!";
 			array_pop(${'cup'.$currP});
 			$totalDie--;
 		}
+		
+		//else they were bluffing and prevP loses a die.
 		else{
 			echo "Player $currP doesn't fall for bluffs. Player $prevP loses a dice!";
 			array_pop(${'cup'.$prevP});
@@ -123,24 +137,22 @@
 		}
 		
 		
-		
+		//prints die after removing.
 		$count = 1;
 		while($count <= $players){
 			if (empty(${'cup'.$count})) {
 				$count--;
 				$player[$count] = 0;
 				$count++;
-				
-				if($players == 1){
-					callWinner();
-				}
 			}
+			
 			echo "<br><br>";
 			echo "Player $count: ";
 			printDie(${'cup'.$count});
 			
 			
 			roll(${'cup'.$count});
+			
 			echo "<br><br>";
 			
 			
@@ -158,15 +170,27 @@
 		
 		
 		
-		if ($count == 1){
-			
-		}
+		//select the next player randomly after rerolling. Make sure player is active, ie player[currp] == 1
 		do{
 		$currP = rand(1,$players);
 		$currP--;
 		}
 		while ($player[$currP] == 0);
 		$currP++;
+		
+		//checks if there is one player active, if so...
+		$count=0;
+		$size = count($player);
+		for($i=0; $i<$size; $i++){
+			if($player[$i] ==1){
+				$count++;
+			}
+		}
+		
+		//...call the winner
+		if($count == 1){
+			callWinner($player);
+		}
 		
 	
 		$_SESSION['players'] = $players;

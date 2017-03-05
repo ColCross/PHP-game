@@ -54,22 +54,35 @@
 	
 	
 	$currP = $_POST['currP'];
-	
 	$prevP = $currP;
-	$_SESSION['prevP'] = $prevP;
 	$currP++;
+	$indexP = $currP-1;
+	if($player[$indexP] == 1){
+	
+	} 
+	else{
+		while($player[$indexP] ==0){
+			if($currP > $players){
+				$currP = 1;
+				$indexP = 0;
+			}
+			else{
+			$currP++;
+			$indexP++;
+			}
+		}
+	}
+	
+	//print current and prev players.
+	echo "current player is $currP";
+	echo "<br><br>";
+	echo "previous player is $prevP";
+	echo "<br><br>";
+	$_SESSION['prevP'] = $prevP;
 	$_SESSION['currP'] = $currP;
 	
-	
-	
-	if($currP > $players){
-		$currP = 1;
-	}
-	else {
-		$currP;
-	}
 
-	
+	//bring the array from previous page and print
 	$count = 1;
 	while($count <= $players){
 		${'cup'.$count} = $_SESSION['cup'.$count];	//a note, we do not need to save this into the next page. We update the arrays only on the next page.
@@ -89,8 +102,6 @@
 	$_SESSION['currBetNum'] = $currBetNum;
 	$_SESSION['currBetVal'] = $currBetVal;
 	
-	echo "current player is $currP";
-	echo "<br><br>";
 
 	
 	function displayBet($currBetNum, $currBetVal){
