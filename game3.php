@@ -185,7 +185,7 @@ $_SESSION['player'] = $player;
 
 ?>
 
-<form action="dicegame4.php" method="post">
+<form action="game2.php" method="post">
     <input type="hidden" name="currP" value= <?php echo '"' . $currP . '">'; ?>
     <input type="submit" value="ReRoll!" name="submit1"/>
 </form>

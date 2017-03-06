@@ -6,7 +6,7 @@
 
 <body>
 
-<form action="dicegame3.php" method="post">
+<form action="game.php" method="post">
 
     <h1>Players</h1>
     <select name="players">
