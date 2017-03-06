@@ -72,7 +72,7 @@ while ($count <= $players) {
     ${'cup' . $count} = $_SESSION['cup' . $count];    //a note, we do not need to save this into the next page. We update the arrays only on the next page.
     echo "Player $count: ";
     echo '<div class="dice">';
-    printDie(${'cup' . $count});                        //we do however need to save a lot of variables into the next page.
+    printDie(${'cup' . $count}, $currP, $count);                        //we do however need to save a lot of variables into the next page.
     echo "</div>";
     $count++;
 }
@@ -100,11 +100,12 @@ function displayBet($currBetNum, $currBetVal)
 
 displayBet($currBetNum, $currBetVal);
 
-function printDie($array)
+function printDie($array, $currP, $x)
 {
     $size = count($array);
 
     for ($k = 0; $k < $size; $k++) {
+        if ($currP == $x) {
         switch ($array[$k]) {
             case 1:
                 echo '<img src="images/die1.png" alt="icon" />';
@@ -124,6 +125,9 @@ function printDie($array)
             case 6:
                 echo '<img src="images/die6.png" alt="icon" />';
                 break;
+        }
+        } else {
+            echo '<img src="images/die0.png" alt="icon" />';
         }
     }
 }

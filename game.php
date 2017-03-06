@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Project 2</title>
-    <link rel="stylesheet" type="text/css" href="game.css">
+  <title>Project 2</title>
+  <link rel="stylesheet" type="text/css" href="game.css">
 </head>
 
 <body>
 
-<div id="diceDisplay">
-<?php
+  <div id="diceDisplay">
+    <?php
 //How this algorithm works on this page and why we need what we need. First off, the variables.
 //Number of players
 //number of dice
@@ -45,63 +46,67 @@ for ($i = 1; $i <= $players; $i++) {
     }
     echo "Player $i: ";
     echo '<div class="dice">';
-    printDie(${'cup' . $i});
+    printDie(${'cup' . $i}, $currP, $i);
     echo "</div>";
 }
 $_SESSION['player'] = $player;
 
-function printDie($array)
+function printDie($array, $currP, $x)
 {
     $size = count($array);
-
+    
     for ($k = 0; $k < $size; $k++) {
-        switch ($array[$k]) {
-            case 1:
-                echo '<img src="images/die1.png" alt="icon" />';
-                break;
-            case 2:
-                echo '<img src="images/die2.png" alt="icon" />';
-                break;
-            case 3:
-                echo '<img src="images/die3.png" alt="icon" />';
-                break;
-            case 4:
-                echo '<img src="images/die4.png" alt="icon" />';
-                break;
-            case 5:
-                echo '<img src="images/die5.png" alt="icon" />';
-                break;
-            case 6:
-                echo '<img src="images/die6.png" alt="icon" />';
-                break;
+        if ($currP == $x) {
+            switch ($array[$k]) {
+                case 1:
+                    echo '<img src="images/die1.png" alt="icon" />';
+                    break;
+                case 2:
+                    echo '<img src="images/die2.png" alt="icon" />';
+                    break;
+                case 3:
+                    echo '<img src="images/die3.png" alt="icon" />';
+                    break;
+                case 4:
+                    echo '<img src="images/die4.png" alt="icon" />';
+                    break;
+                case 5:
+                    echo '<img src="images/die5.png" alt="icon" />';
+                    break;
+                case 6:
+                    echo '<img src="images/die6.png" alt="icon" />';
+                    break;
         }
+    } else {
+        echo '<img src="images/die0.png" alt="icon" />';
     }
+}
 }
 
 ?>
-</div>
+  </div>
 
-<div id="menu">
-<!--below is basic form handling for html.-->
-<form action="game2.php" method="post">
+  <div id="menu">
+    <!--below is basic form handling for html.-->
+    <form action="game2.php" method="post">
 
-    <h2>Current Turn: Player <?php echo $currP; ?>    </h2>
-    <h2>Number of Dice</h2>
-    <input type="hidden" name="currP" value=<?php echo '"' . $currP . '">'; ?>
-    <select name="currBetNum">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    </select>
+      <h2>Current Turn: Player <?php echo $currP; ?>    </h2>
+      <h2>Number of Dice</h2>
+      <input type="hidden" name="currP" value=<?php echo '"' . $currP . '">'; ?>
+      <select name="currBetNum">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
 
-    <h3>Value of Dice</h3>
-    <select name="currBetVal">
+      <h3>Value of Dice</h3>
+      <select name="currBetVal">
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
@@ -109,11 +114,12 @@ function printDie($array)
         <option value="5">Five</option>
         <option value="6">Six</option>
 
-    </select>
+      </select>
 
-    <br></br>
-    <input type="submit" value="Make Your Bet" name="submit"/>
-</div>
-</form>
+      <br></br>
+      <input type="submit" value="Make Your Bet" name="submit" />
+  </div>
+  </form>
 </body>
+
 </html>

@@ -16,7 +16,7 @@ function callWinner($array)
     for ($i = 0; $i < $size; $i++) {
         if ($array[$i] == 1) {
             $i++;
-            echo "<h1> Congrats, player $i is the winner!!!</h1>";
+            echo "<h1>Player $i is the winner!</h1>";
 
         }
     }
