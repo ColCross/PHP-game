@@ -130,7 +130,7 @@ function printDie($array)
 
 ?>
 
-<form action="game2.php" method="post">
+<form action="dicegame4.php" method="post">
 
     <h1>Current player <?php echo $currP ?></h1>
     <input type="hidden" name="currP" value= <?php echo '"' . $currP . '">'; ?>
@@ -162,7 +162,7 @@ function printDie($array)
 
 </form>
 
-<form action="game3.php" method="post">
+<form action="dicegame5.php" method="post">
     <input type="hidden" name="currP" value= <?php echo '"' . $currP . '">'; ?>
     <input type="submit" value="Bluff!" name="submit1"/>
 </form>

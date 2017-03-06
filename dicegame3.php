@@ -79,7 +79,7 @@ function printDie($array)
 ?>
 
 <!--below is basic form handling for html.-->
-<form action="game2.php" method="post">
+<form action="dicegame4.php" method="post">
 
     <h1>Current player <?php echo $currP; ?>    </h1>
     <h2>Make a bet</h2>
