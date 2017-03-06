@@ -2,10 +2,12 @@
 <html>
 <head>
     <title>Project 2</title>
+    <link rel="stylesheet" type="text/css" href="game.css">
 </head>
 
 <body>
 
+<div id="diceDisplay">
 <?php
 //How this algorithm works on this page and why we need what we need. First off, the variables.
 //Number of players
@@ -41,10 +43,10 @@ for ($i = 1; $i <= $players; $i++) {
         ${'cup' . $i}[] = rand(1, 6);            //fills up our cup123.. with desired number of dice
         $_SESSION['cup' . $i] = ${'cup' . $i};    //save cup123 to use next page. we have all our dice stored in arrays
     }
-    echo "<br><br>";
     echo "Player $i: ";
+    echo '<div class="dice">';
     printDie(${'cup' . $i});
-    echo "<br><br>";
+    echo "</div>";
 }
 $_SESSION['player'] = $player;
 
@@ -77,11 +79,12 @@ function printDie($array)
 }
 
 ?>
+</div>
 
 <!--below is basic form handling for html.-->
 <form action="game2.php" method="post">
 
-    <h1>Current player <?php echo $currP; ?>    </h1>
+    <h1>Current Turn: Player <?php echo $currP; ?>    </h1>
     <h2>Make a bet</h2>
     <h2>Number of Dice</h2>
     <input type="hidden" name="currP" value=<?php echo '"' . $currP . '">'; ?>

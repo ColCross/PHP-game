@@ -2,9 +2,10 @@
 <html>
 <head>
     <title>Project 2</title>
+    <link rel="stylesheet" type="text/css" href="game.css">
 </head>
 <body>
-
+<div id ="diceDisplay">
 <?php
 //So we have one main array, the player array which shows how many players are active with dice. Each index of this array has a corresponding cup array, and each cup has dice.
 //Player array is [1,1,1] -3 players
@@ -69,11 +70,10 @@ $_SESSION['currP'] = $currP;
 $count = 1;
 while ($count <= $players) {
     ${'cup' . $count} = $_SESSION['cup' . $count];    //a note, we do not need to save this into the next page. We update the arrays only on the next page.
-    echo "<br><br>";
-
     echo "Player $count: ";
+    echo '<div class="dice">';
     printDie(${'cup' . $count});                        //we do however need to save a lot of variables into the next page.
-    echo "<br><br>";
+    echo "</div>";
     $count++;
 }
 
@@ -129,10 +129,11 @@ function printDie($array)
 }
 
 ?>
+</div>
 
 <form action="game2.php" method="post">
 
-    <h1>Current player <?php echo $currP ?></h1>
+    <h1>Current Turn: Player <?php echo $currP ?></h1>
     <input type="hidden" name="currP" value= <?php echo '"' . $currP . '">'; ?>
 
     <h2>Make a bet</h2>

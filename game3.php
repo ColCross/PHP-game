@@ -2,9 +2,11 @@
 <html>
 <head>
     <title>Project 2</title>
+    <link rel="stylesheet" type="text/css" href="game.css">
 </head>
 
 <body>
+    <div id="diceDisplay">
 <?php
 
 function callWinner($array)
@@ -92,10 +94,10 @@ for ($i = 0; $i < $players; $i++) {
     if ($player[$i] == 1) {
         $i++;
         ${'cup' . $i} = $_SESSION['cup' . $i];
-        echo "<br><br>";
         echo "Player $i: ";
+        echo '<div class="dice">';
         printDie(${'cup' . $i});
-        echo "<br><br>";
+        echo "</div>";
         $i--;
     }
 }
@@ -184,6 +186,8 @@ $_SESSION['player'] = $player;
 
 
 ?>
+
+</div>
 
 <form action="game2.php" method="post">
     <input type="hidden" name="currP" value= <?php echo '"' . $currP . '">'; ?>
