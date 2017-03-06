@@ -24,3 +24,16 @@ img {
     color: white;
     font-family: Georgia, serif;
 }
+
+#menu {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    background-color: #437F97;
+    border-radius: 25px;
+    border: 5px solid #FFB30F;
+    text-align: center;
+    color: white;
+    font-family: Georgia, serif;
+    padding: 10px;
+}

@@ -131,12 +131,12 @@ function printDie($array)
 ?>
 </div>
 
+<div id="menu">
 <form action="game2.php" method="post">
 
-    <h1>Current Turn: Player <?php echo $currP ?></h1>
+    <h2>Current Turn: Player <?php echo $currP ?></h2>
     <input type="hidden" name="currP" value= <?php echo '"' . $currP . '">'; ?>
 
-    <h2>Make a bet</h2>
     <h2>Number of Dice</h2>
     <input type="number" name='currBetNum'
     <?php echo 'min="';
@@ -159,13 +159,14 @@ function printDie($array)
     </select>
 
     <br></br>
-    <input type="submit" value="Click" name="submit"/>
+    <input type="submit" value="Make Your Bet" name="submit"/>
 
 </form>
 
 <form action="game3.php" method="post">
     <input type="hidden" name="currP" value= <?php echo '"' . $currP . '">'; ?>
-    <input type="submit" value="Bluff!" name="submit1"/>
+    <input type="submit" value="Call their Bluff" name="submit1"/>
 </form>
+</div>
 </body>
 </html>

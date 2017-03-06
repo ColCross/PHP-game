@@ -81,11 +81,11 @@ function printDie($array)
 ?>
 </div>
 
+<div id="menu">
 <!--below is basic form handling for html.-->
 <form action="game2.php" method="post">
 
-    <h1>Current Turn: Player <?php echo $currP; ?>    </h1>
-    <h2>Make a bet</h2>
+    <h2>Current Turn: Player <?php echo $currP; ?>    </h2>
     <h2>Number of Dice</h2>
     <input type="hidden" name="currP" value=<?php echo '"' . $currP . '">'; ?>
     <select name="currBetNum">
@@ -112,8 +112,8 @@ function printDie($array)
     </select>
 
     <br></br>
-    <input type="submit" value="Click" name="submit"/>
-
+    <input type="submit" value="Make Your Bet" name="submit"/>
+</div>
 </form>
 </body>
 </html>
