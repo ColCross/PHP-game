@@ -116,7 +116,7 @@ for ($i = 0; $i < $players; $i++) {
     }
 }
 echo "<br><br>";
-echo "Total matches of all active players $x";
+//echo "Total matches of all active players $x";
 echo "<br><br>";
 
 //if selected die is less than or equal to the number of dice, the player wasn't bluffing,
@@ -126,10 +126,11 @@ if ($x >= $currBetNum) {
     array_pop(${'cup' . $currP});
     $totalDie--;
 } else {
-    echo "Player $currP doesn't fall for bluffs. Player $prevP loses a dice!";
+    echo "Player $currP wasn't fooled. Player $prevP loses a dice!";
     array_pop(${'cup' . $prevP});
     $totalDie--;
 }
+
 
 //prints die after removing.
 $count = 1;
@@ -140,20 +141,20 @@ while ($count <= $players) {
         $count++;
     }
 
-    echo "<br><br>";
-    echo "Player $count: ";
-    printDie(${'cup' . $count});
+    //echo "<br><br>";
+    //echo "Player $count: ";
+    //printDie(${'cup' . $count});
 
     roll(${'cup' . $count});
 
-    echo "<br><br>";
+    //echo "<br><br>";
 
     $_SESSION['cup' . $count] = ${'cup' . $count};
 
-    echo "<br><br>";
+    //echo "<br><br>";
 
-    echo "<br><br>";
-    echo "<br><br>";
+    //echo "<br><br>";
+    //echo "<br><br>";
     $count++;
 }
 
